@@ -1,4 +1,5 @@
 import { Menu } from 'lucide-react';
+import { useState } from 'react';
 
 type MobileMenuButtonProps = {
     onClick: () => void;
@@ -6,8 +7,8 @@ type MobileMenuButtonProps = {
 
 export default function MobileMenuButton({ onClick }: MobileMenuButtonProps) {
     return (
-        <button className="absolute right-2 top-2 p-2" onClick={onClick}>
-            <Menu size={24} />
+        <button className="absolute right-0 p-2" onClick={onClick}>
+            <Menu size={32} />
         </button>
     );
 }

@@ -8,26 +8,25 @@ body {
 
 @layer base {
   :root {
-    --background: 199 44% 1%;
-    --foreground: 199 17% 100%;
-    --muted: 19 13% 7%;
-    --muted-foreground: 19 11% 64%;
-    --popover: 199 44% 1%;
-    --popover-foreground: 199 17% 100%;
-    --card: 199 44% 1%;
-    --card-foreground: 199 17% 100%;
-    --border: 199 13% 11%;
-    --input: 199 13% 11%;
-    --primary: 199 77% 28%;
+    --background: 284 42% 3%;
+    --foreground: 284 31% 99%;
+    --muted: 44 32% 10%;
+    --muted-foreground: 44 1% 68%;
+    --popover: 284 42% 3%;
+    --popover-foreground: 284 31% 99%;
+    --card: 284 42% 4%;
+    --card-foreground: 0 0% 100%;
+    --border: 284 9% 13%;
+    --input: 284 9% 13%;
+    --primary: 284 87% 53%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 19 77% 28%;
-    --secondary-foreground: 19 77% 88%;
-    --accent: 19 77% 28%;
-    --accent-foreground: 19 77% 88%;
-    --destructive: 1 81% 52%;
+    --secondary: 44 87% 53%;
+    --secondary-foreground: 44 87% 13%;
+    --accent: 164 87% 53%;
+    --accent-foreground: 164 87% 13%;
+    --destructive: 2 100% 60%;
     --destructive-foreground: 0 0% 100%;
-    --ring: 199 77% 28%;
-    --hover-text: 199 100% 80%;
+    --ring: 284 87% 53%;
   }
 }
 
@@ -35,6 +34,7 @@ body {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }

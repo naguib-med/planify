@@ -1,14 +1,14 @@
 import Navbar from "@/components/Navbar";
+import HeroComponent from "@/components/HeroComponent";
+import {Spacing} from "@/components/Spacing";
 
 export default function Home() {
   return (
       <>
           <Navbar/>
-          <main className="flex flex-col items-center justify-center h-screen">
-              <p className="text-lg text-center">Planify est une plateforme de prise de rendez-vous en ligne.</p>
-              <p className="text-lg text-center">Planifiez vos rendez-vous en toute simplicité.</p>
-
-              <a href="/appointments" className="text-blue-500">Prendre un rendez-vous</a>
+          <main>
+              <Spacing size="md"/>
+              <HeroComponent />
           </main>
 
           <footer className="flex flex-col items-center justify-center gap-4">

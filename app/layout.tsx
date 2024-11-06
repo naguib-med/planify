@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
+import { Anek_Telugu } from "next/font/google";
+import { cn } from "@/lib/utils";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const AnekTelugu = Anek_Telugu({
+  subsets: ["latin"],
+  variable: "--font-caption",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -19,17 +17,22 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
-}: Readonly<{
+                                     children,
+                                   }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
+      <html lang="fr">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          className={cn(
+              GeistSans.variable,
+              GeistMono.variable,
+              AnekTelugu.variable,
+              "font-sans h-full bg-background text-foreground"
+          )}
       >
-        {children}
+      {children}
       </body>
-    </html>
+      </html>
   );
 }
