@@ -1,11 +1,10 @@
 import Link from 'next/link';
-import { X } from 'lucide-react';
+import { Home, Calendar, Info, User, X } from 'lucide-react';
 
 type MobileDrawerProps = {
     isOpen: boolean;
     onClose: () => void;
 };
-
 
 export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
     return (
@@ -18,18 +17,23 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                 <X size={32} />
             </button>
             <ul className="flex flex-col justify-center items-center space-y-4">
-                <li className="text-2xl hover:text-primary hover:font-semibold">
+                <li className="text-2xl hover:text-primary hover:font-semibold flex items-center space-x-2">
+                    <Home className="w-6 h-6" />
                     <Link href="/">Accueil</Link>
                 </li>
-                <li className="text-2xl hover:text-primary hover:font-semibold">
+                <li className="text-2xl hover:text-primary hover:font-semibold flex items-center space-x-2">
+                    <Calendar className="w-6 h-6" />
                     <Link href="/appointments">Rendez-vous</Link>
                 </li>
-                <li className="text-2xl hover:text-primary hover:font-semibold">
+                <li className="text-2xl hover:text-primary hover:font-semibold flex items-center space-x-2">
+                    <Info className="w-6 h-6" />
                     <Link href="/about">À propos</Link>
+                </li>
+                <li className="text-2xl hover:text-primary hover:font-semibold flex items-center space-x-2">
+                    <User className="w-6 h-6" />
+                    <Link href="/profile">Profil</Link>
                 </li>
             </ul>
         </div>
     );
 }
-
-
