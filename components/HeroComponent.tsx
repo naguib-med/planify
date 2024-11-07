@@ -26,6 +26,9 @@ export default function HeroComponent() {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="bg-primary text-primary-foreground font-semibold py-4 px-6 hover:bg-primary/90 transition duration-300 flex items-center space-x-2"
+                        onClick={() => {
+                            window.location.href = "/auth/signin";
+                        }}
                     >
                         <span>Commencer maintenant</span>
                         <ArrowRight className="w-5 h-5" />

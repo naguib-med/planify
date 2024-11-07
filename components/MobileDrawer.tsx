@@ -1,12 +1,14 @@
+"use client";
 import Link from 'next/link';
 import { Home, Calendar, Info, User, X } from 'lucide-react';
 
 type MobileDrawerProps = {
     isOpen: boolean;
     onClose: () => void;
+    session: any;
 };
 
-export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
+export default function MobileDrawer({ isOpen, onClose, session }: MobileDrawerProps) {
     return (
         <div
             className={`fixed flex flex-col justify-center items-center z-10 top-0 right-0 h-full w-full bg-primary text-primary-foreground transition-transform duration-300 transform ${

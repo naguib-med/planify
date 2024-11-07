@@ -1,7 +1,13 @@
+"use client";
 import Link from 'next/link';
-import { Home, Calendar, Info, User } from 'lucide-react';
+import {Home, Calendar, Info, LogIn, LogOut, UserIcon} from 'lucide-react';
+import {signOut} from "next-auth/react";
 
-export default function DesktopNavLinks() {
+type DesktopNavLinksProps = {
+    session: any;
+};
+
+export default function DesktopNavLinks({ session}: DesktopNavLinksProps) {
     return (
         <ul className="absolute right-0 flex flex-row space-x-6">
             <li className="relative text-xl hover:text-primary group flex items-center space-x-2">
@@ -29,12 +35,23 @@ export default function DesktopNavLinks() {
                 </Link>
             </li>
             <li className="relative text-xl hover:text-primary group flex items-center space-x-2">
-                <Link href="/profile" className="relative flex items-center gap-2">
-                    <User className="w-5 h-5" />
-                    <span>Profil</span>
-                    <span
-                        className="absolute left-0 -bottom-1 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
-                </Link>
+                {session ? (
+                    <>
+                        <Link href="/profile" className="relative flex items-center gap-2">
+                            <UserIcon className="w-5 h-5" />
+                            <span>Pofil</span>
+                            <span
+                                className="absolute left-0 -bottom-1 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
+                        </Link>
+                    </>
+                ) : (
+                    <Link href="/auth/signin" className="relative flex items-center gap-2">
+                        <LogIn className="w-5 h-5" />
+                        <span>Connexion</span>
+                        <span
+                            className="absolute left-0 -bottom-1 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </Link>
+                )}
             </li>
         </ul>
     );

@@ -4,6 +4,8 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { Anek_Telugu } from "next/font/google";
 import { cn } from "@/lib/utils";
+import { SessionProvider } from "next-auth/react";
+import { auth } from '@/auth'
 
 const AnekTelugu = Anek_Telugu({
   subsets: ["latin"],
@@ -12,16 +14,17 @@ const AnekTelugu = Anek_Telugu({
 });
 
 export const metadata: Metadata = {
-  title: "Planify - Organisez vos rendez-vous",
-  description: "Planifiez vos rendez-vous en toute simplicité",
+    title: "Planify - Organisez vos rendez-vous",
+    description: 'Application de gestion de rendez-vous',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
                                      children,
                                    }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
+    const session = await auth()
+    return (
       <html lang="fr">
       <body
           className={cn(
@@ -31,7 +34,9 @@ export default function RootLayout({
               "font-sans h-full bg-background text-foreground"
           )}
       >
-      {children}
+      <SessionProvider session={session}>
+          {children}
+      </SessionProvider>
       </body>
       </html>
   );
